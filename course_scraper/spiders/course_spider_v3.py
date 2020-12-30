@@ -16,11 +16,6 @@ from .score_card_processor import *
 CWDIR = get_project_settings().get("BASE_DIR")
 scripts = CWDIR / 'course_scraper/spiders/scripts'
 
-# Load operating system environment variables and then prepare to use them
-# GOLF_USERNAME = os.getenv("GOLF_USERNAME")
-# GOLF_PASSWORD = os.getenv("GOLF_PASSWORD")
-
-
 class CoursespiderV3Spider(scrapy.Spider):
     name = 'coursespider_v3'
     allowed_domains = [os.getenv("DOMAIN")]
@@ -28,7 +23,6 @@ class CoursespiderV3Spider(scrapy.Spider):
 
     def __init__(self):
         opts = Options()
-        # driver_path = '/Applications/chromedriver'
         driver_path = "C:/Program Files/chromedriver.exe"
         opts.add_argument(
             "user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36")
@@ -37,7 +31,6 @@ class CoursespiderV3Spider(scrapy.Spider):
         driver.get(os.getenv("STARTING_URL"))
 
         # Log in
-        # TODO make a fake login and save it in the .env
         driver.find_element_by_id("username1").send_keys(os.getenv("GOLF_USERNAME"))
         driver.find_element_by_id("password1").send_keys(os.getenv("GOLF_PASSWORD"))
         driver.find_element_by_id("submit").click()
@@ -70,7 +63,7 @@ class CoursespiderV3Spider(scrapy.Spider):
         # sleep so the site does its thing
         time.sleep(15)
 
-        # global variable for the html page after the buttons were clicked
+        # init variable for the html page after the buttons were clicked
         self.html = driver.page_source.encode('utf-8')
         self.sessionid = driver.get_cookie("PHPSESSID")['value']
         self.json_text = driver.find_element_by_id("scrapy-scrapper").text
@@ -78,7 +71,6 @@ class CoursespiderV3Spider(scrapy.Spider):
         driver.close()
 
     def parse(self, response):
-        # resp = Selector(text=self.html)
         courses_json = json.loads(self.json_text)
 
         for course in courses_json:

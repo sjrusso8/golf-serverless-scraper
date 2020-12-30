@@ -24,7 +24,6 @@ class CoursespiderSpider(scrapy.Spider):
 
     def __init__(self):
         opts = Options()
-        # driver_path = '/Applications/chromedriver'
         driver_path = "C:/Program Files/chromedriver.exe"
         opts.add_argument(
             "user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36")
@@ -73,7 +72,6 @@ class CoursespiderSpider(scrapy.Spider):
         driver.close()
 
     def parse(self, response):
-        # resp = Selector(text=self.html)
         courses_json = json.loads(self.json_text)
 
         for course in courses_json:

@@ -1,20 +1,9 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-
-
-# useful for handling different item types with a single interface
-import scrapy
-import json
+# Scrapy pipeline to post to a Django Rest Framework API
+import os
 import requests
-from scrapy.utils.project import get_project_settings
-from itemadapter import ItemAdapter
-
 
 class CourseScraperPipeline:
-    # course_editor_url = get_project_settings().get('COURSE_EDITOR_URL')
-    course_editor_url = 'http://localhost:8000/api/course_details_editor'
+    course_editor_url = os.getenv("COURSE_API_URL")
 
     def process_item(self, item, spider):
         """ Parse the item by poping out the elements 
