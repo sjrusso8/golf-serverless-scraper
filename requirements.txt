@@ -1,0 +1,4 @@
+requests==2.25.1
+Scrapy==2.4.1
+selenium==3.141.0
+python-dotenv==0.15.0
