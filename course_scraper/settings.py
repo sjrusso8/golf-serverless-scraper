@@ -71,9 +71,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#     'course_scraper.pipelines.CourseScraperPipeline': 300,
-# }
+ITEM_PIPELINES = {
+    'course_scraper.pipelines.CourseScraperPipeline': 300,
+}
 
 # COURSE_EDITOR_URL = 'http://localhost:8000/api/course_editor'
 

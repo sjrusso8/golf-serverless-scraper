@@ -23,7 +23,7 @@ class CoursespiderV3Spider(scrapy.Spider):
 
     def __init__(self):
         opts = Options()
-        driver_path = "C:/Program Files/chromedriver.exe"
+        driver_path = os.getenv("SELENIUM_DRIVER")
         opts.add_argument(
             "user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36")
         driver = webdriver.Chrome(
@@ -49,9 +49,9 @@ class CoursespiderV3Spider(scrapy.Spider):
             driver.execute_script(script)
 
             driver.find_element_by_id(
-                "courseFinderHeader").send_keys("reeves")
+                "courseFinderHeader").send_keys("TPC")
 
-            print("Gathering the Reeves")
+            print("Gathering the TPC")
 
             time.sleep(30)
 

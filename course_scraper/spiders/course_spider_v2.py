@@ -24,7 +24,7 @@ class CoursespiderSpider(scrapy.Spider):
 
     def __init__(self):
         opts = Options()
-        driver_path = "C:/Program Files/chromedriver.exe"
+        driver_path = os.getenv("SELENIUM_DRIVER")
         opts.add_argument(
             "user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36")
         driver = webdriver.Chrome(
