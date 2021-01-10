@@ -1,4 +1,4 @@
-# Scrapy Crawler for Collection Golf Course Data
+# Scrapy Web Crawler for Collecting Golf Course Data
 
 This website scraper is used to dynamically scrape a specific website containing data about golf courses.  The data is used in a related project [golf-serverless][1] as part of the backend database.
 
@@ -21,6 +21,5 @@ To install the requirements on your platform:
 To start this scraper run this command from the root folder:
 
     scrapy crawl course_spider_v3
-
 
 [1]: https://github.com/sjrusso8/golf-api-serverless "golf-serverless"
