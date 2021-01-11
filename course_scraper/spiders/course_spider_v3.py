@@ -9,6 +9,7 @@ import os
 from scrapy.utils.project import get_project_settings
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
 
 from .score_card_processor import *
 
@@ -49,19 +50,19 @@ class CoursespiderV3Spider(scrapy.Spider):
             driver.execute_script(script)
 
             driver.find_element_by_id(
-                "courseFinderHeader").send_keys("TPC")
+                "courseFinderHeader").send_keys("tpc")
 
-            print("Gathering the TPC")
+            print("Gathering the TPC links")
 
-            time.sleep(30)
+            time.sleep(6)
 
-            # print("Gathering Ohio Links")
+            print("Gathering Ohio Links")
 
-            # driver.find_element_by_id(
-            #     "courseFinderHeader").send_keys(3 * Keys.BACKSPACE)
+            driver.find_element_by_id(
+                "courseFinderHeader").send_keys(3 * Keys.BACKSPACE)
 
         # sleep so the site does its thing
-        time.sleep(15)
+        time.sleep(185)
 
         # init variable for the html page after the buttons were clicked
         self.html = driver.page_source.encode('utf-8')

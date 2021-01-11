@@ -3,6 +3,8 @@ import os
 import requests
 
 class CourseScraperPipeline:
+    auth_token= os.getenv("BEARER")
+    head = {'Authorization': 'Bearer ' + auth_token}
     course_editor_url = os.getenv("COURSE_API_URL")
 
     def process_item(self, item, spider):
@@ -19,6 +21,7 @@ class CourseScraperPipeline:
 
         res_course = requests.post(
             self.course_editor_url,
+            headers=self.head,
             json=course_info
         )
 
