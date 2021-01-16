@@ -54,7 +54,7 @@ class CoursespiderV3Spider(scrapy.Spider):
 
             print("Gathering the TPC links")
 
-            time.sleep(6)
+            time.sleep(4)
 
             print("Gathering Ohio Links")
 
