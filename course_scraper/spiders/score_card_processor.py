@@ -1,5 +1,5 @@
 """
-Defining a python functions that handle the processing of the score card
+Defining a python function that handles the processing of the score card context
 """
 import re
 
@@ -25,7 +25,7 @@ def compile_tee_cr_slope(response):
         - Combine the 3 dictionaries together for one list of dictionaries
 
     Return:
-        - A list of dictionaroes
+        - A list of dictionaries with the tee, course rating, and slope 
     """
     cr = []
     slopes = []
