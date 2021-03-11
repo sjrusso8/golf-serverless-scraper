@@ -1,19 +1,4 @@
-// var v = [];
-
-// ((() => {
-//     const origOpen = XMLHttpRequest.prototype.open;
-//     XMLHttpRequest.prototype.open = function () {
-//         this.addEventListener('load', function () {
-//             console.log('request completed!');
-//             console.log(this.readyState); //will always be 4 (ajax is completed successfully)
-//             v = [...v, ...JSON.parse(this.responseText)];
-//             console.log(this.responseText);
-//         });
-//         origOpen.apply(this, arguments);
-//     };
-// }))();
-
-
+//  Scripts that are injected into the website to target their API
 
 let waitLoad = () => {
     return new Promise(resolve => {
@@ -64,5 +49,3 @@ let searchKeyup = (text, input) => {
 
 
 var loadinterval = window.setInterval(loadContent, 2000)
-
-// searchKeyup("TPC", "#courseFinderHeader")
