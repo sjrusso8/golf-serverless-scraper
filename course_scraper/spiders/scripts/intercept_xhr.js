@@ -1,3 +1,6 @@
+//  Scripts that are injected into the website to target their API
+//  The script then appends the text to the website page itself.  The DOM is then passed to the python crawler to parse each link
+
 let golfFooter = document.getElementById('footer');
 let jsonContainer = document.createElement("div");
 
