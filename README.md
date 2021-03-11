@@ -1,6 +1,6 @@
 # Scrapy Web Crawler for Collecting Golf Course Data
 
-This website scraper is used to dynamically scrape a specific website containing data about golf courses.  The data is used in a related project [golf-serverless][1] as part of the backend database.
+This website scraper is used to dynamically scrape a specific website containing data about golf courses.  The data is used in a related project [golf-api-serverless][1] as part of the backend database.
 
 The scraper dynamically crawls many different websites, and then posts the data to a Django REST API endpoint.
 
